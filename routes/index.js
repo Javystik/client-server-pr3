@@ -1,5 +1,6 @@
 const { echoRoute } = require("./echo");
-const { productsRouter } = require("./products");
+const { resourcesRouter } = require("./resources");
+const { recipesRouter } = require("./recipes");
 
 module.exports.patchRouting = (fastify) => {
   fastify.setNotFoundHandler((request, reply) => {
@@ -19,5 +20,6 @@ module.exports.patchRouting = (fastify) => {
   });
 
   fastify.register(echoRoute);
-  fastify.register(productsRouter);
+  fastify.register(recipesRouter);
+  fastify.register(resourcesRouter);
 };

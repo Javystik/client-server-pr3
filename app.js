@@ -4,7 +4,6 @@ require("pino-pretty");
 const { IS_DEV_ENV } = require("./config");
 const { patchRouting } = require("./routes");
 
-
 const bootstrapFastify = () => {
   const fastify = Fastify({
     exposeHeadRoutes: false,
@@ -27,7 +26,6 @@ const bootstrapFastify = () => {
   patchRouting(fastify);
 
   if (IS_DEV_ENV) {
-
     fastify.register(require("@mgcrea/fastify-request-logger"), {});
 
     fastify.ready(() => {
